@@ -1,9 +1,9 @@
 import os
 
-
+from django import get_version
 from django.conf import settings
 from django.shortcuts import render
-from django import get_version
+
 
 
 def home(request):
