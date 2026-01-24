@@ -3,5 +3,7 @@ from django.urls import path
 from ecommerce import views
 
 urlpatterns = [
-    path("", views.home, name="home"),
+    path("", views.product_model_list_view, name="list"),
+    path("<int:product_id>", views.product_model_detail_view, name= "detail"),
+    path("create", views.product_model_create_view, name= "create"),
 ]
