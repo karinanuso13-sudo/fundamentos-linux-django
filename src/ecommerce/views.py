@@ -1,11 +1,10 @@
-from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponse, HttpResponseRedirect
+from django.contrib.auth.decorators import login_required
+from django.http import HttpResponseRedirect
+from django.shortcuts import get_object_or_404, render
 
 from .forms import ProductModelForm
 from .models import ProductModel
-
 
 # Create your views here.
 #def home (request):
@@ -35,11 +34,12 @@ from .models import ProductModel
 #@login_required
 def product_model_create_view(request):
     form = ProductModelForm(request.POST or None)
-    is form.is_valid():
-    instance = form.save(commit=False)
-    instance.save()
-    messages.succes(request, "Producto creado con éxito")
-    return HttpResponseRedirect("/ecommerce/{product_id}".format(product_id=instance.id))
+
+    if form.is_valid():
+        instance = form.save(commit=False)
+        instance.save()
+        messages.succes(request, "Producto creado con éxito")
+        return HttpResponseRedirect("/ecommerce/{product_id}".format(product_id=instance.id))
 context = {
     "form":form
 }
