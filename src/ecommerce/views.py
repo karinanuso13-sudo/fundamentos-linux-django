@@ -67,6 +67,7 @@ def product_model_list_view(request):
         template = "ecommerce/list-view.html"
     else: 
         template = "ecommerce/list-view-public.html"
+        
     return render(request, template, context)
 
 @login_required
