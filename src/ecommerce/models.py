@@ -5,3 +5,8 @@ from django.db import models
 class ProductModel(models.Model):
     name = models.TextField()
     price = models.FloatField()
+
+    description = models.TextField(blank=True, null=True)
+    seller = models.CharField(max_length=120, blank=True, null=True)
+    color = models.CharField(max_length=50, blank=True, null=True)
+    product_dimensions = models.CharField(max_length=120, blank=True, null=True)
