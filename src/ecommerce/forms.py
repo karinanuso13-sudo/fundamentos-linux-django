@@ -13,4 +13,5 @@ class ProductModelForm(forms.ModelForm):
             "seller",
             "color",
             "product_dimensions",
+            "short_description",
         ]
